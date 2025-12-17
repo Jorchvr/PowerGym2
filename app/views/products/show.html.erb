@@ -1,0 +1,38 @@
+<%= stylesheet_link_tag "main_panel", media: "all", "data-turbo-track": "reload" %>
+
+<div class="header-row">
+  <h2 class="title"><%= @product.name %></h2>
+  <div style="display:flex; gap:.6rem; flex-wrap:wrap;">
+    <%= link_to "Ir a inicio", authenticated_root_path, class: "btn" %>
+    <%= link_to "Editar", edit_product_path(@product), class: "btn" %>
+    <%= link_to "Volver a productos", products_path, class: "btn" %>
+  </div>
+</div>
+
+<div class="card">
+  <div class="kv">
+    <span>Precio</span>
+    <span><%= number_to_currency(@product.price, unit: "$", precision: 2) %></span>
+  </div>
+
+  <div class="kv">
+    <span>Costo</span>
+    <span><%= number_to_currency(@product.cost, unit: "$", precision: 2) %></span>
+  </div>
+
+  <div class="kv">
+    <span>Ganancia</span>
+    <span><%= number_to_currency(@product.profit, unit: "$", precision: 2) %></span>
+  </div>
+
+  <div class="kv">
+    <span>Margen</span>
+    <span><%= @product.margin_percentage %>%</span>
+  </div>
+
+  <div class="kv">
+    <span>Stock</span>
+    <span><%= @product.stock %></span>
+  </div>
+</div>
+  
